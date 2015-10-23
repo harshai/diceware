@@ -14,7 +14,7 @@
   }, false);
 
   codeEl.addEventListener("click", function(event){
-    copyToClipboard(this.childNodes[0].nodeValue);
+   document.queryCommandSupported('copy') && copyToClipboard(this.childNodes[0].nodeValue);
   }, false)
 
   wordCount.addEventListener("input", function(){

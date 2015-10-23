@@ -81,10 +81,15 @@ main{
   transition: all 400ms ease-in;
 }
 .pass__button{
-  margin-top: 1rem;
   float: right;
   font-size: 1.25rem;
 }
+
+.pass__form{
+  margin-top: 1rem;
+  overflow: auto;
+}
+
 #dummy-textarea{
   position: fixed;
   top: 0;

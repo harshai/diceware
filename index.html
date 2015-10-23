@@ -13,7 +13,7 @@
         <code id="generated-pass" class="pass__display">
           <div id="mask" class="mask">Copied!</div>
         </code>
-        <form name="generatePasswordForm">
+        <form name="generatePasswordForm" class="pass__form">
           <label for="noOfWords">Number of words</label>
           <input id="wordCount" name="word-count" type="range" min="4" max="15" value="6" step="1"/>
           <output id="wordCountOutput" for="foo" class="output__bubble">6</output>
@@ -22,8 +22,8 @@
       </div>
     </section>
   </main>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
-  <!-- <script src="lodash.min.js"></script> -->
+  <!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script> -->
+  <script src="lodash.min.js"></script>
   <script src="diceware-wordlist.js"></script>
   <script src="diceware.js"></script>
   <script src="app.js"></script>
