@@ -13,11 +13,26 @@
         <code id="generated-pass" class="pass__display">
           <div id="mask" class="mask">Copied!</div>
         </code>
-        <form name="generatePasswordForm" class="pass__form">
-          <label for="noOfWords">Number of words</label>
-          <input id="wordCount" name="word-count" type="range" min="4" max="15" value="6" step="1"/>
-          <output id="wordCountOutput" for="foo" class="output__bubble">6</output>
-          <button id="generate" class="pure-button button-primary pass__button">Generate</button>
+        <form name="generatePasswordForm" class="form">
+          <button id="generate" class="pure-button button-primary form__button">Moar</button>
+          <fieldset class="form__group">
+            <label class="form__label" for="noOfWords">Number of words</label>
+            <input id="wordCount" name="word-count" type="range" min="4" max="15" value="6" step="1"/>
+            <output id="wordCountOutput" for="foo" class="output__bubble">6</output>
+          </fieldset>
+
+          <fieldset class="form__group">
+            <label class="form__label" for="extraSecurity"><input type="checkbox"  id="extraSecurity" /> Extra Security</label>
+          </fieldset>
+
+          <fieldset class="form__group">
+            <legend class="form__legend">Separator</legend>
+            <label class="form__label" for="separator_space"><input type="radio" id="separator_space" name="separator" value=" " checked="checked" /> Space</label>
+            <label class="form__label" for="separator_bang"><input type="radio" id="separator_bang" name="separator" value="!"/> Bang</label>
+            <label class="form__label" for="separator_pipe"><input type="radio" id="separator_pipe" name="separator" value="|"/> Pipe</label>
+            <label class="form__label" for="separator_period"><input type="radio" id="separator_period" name="separator" value="."/> Period</label>
+            <label class="form__label" for="separator_comma"><input type="radio" id="separator_comma" name="separator" value=","/> Comma</label>
+          </fieldset>
         </form>
       </div>
     </section>

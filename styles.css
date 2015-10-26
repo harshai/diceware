@@ -78,18 +78,38 @@ main{
   font-weight: 500;
   cursor: pointer;
   position: relative;
+  word-break: break-word;
   transition: all 400ms ease-in;
 }
-.pass__button{
-  float: right;
-  font-size: 1.25rem;
-}
 
-.pass__form{
+.form{
   margin-top: 1rem;
   overflow: auto;
 }
-
+  .form__group{
+    border: none;
+    margin-bottom: 0.5rem;
+  }
+  .form__button{
+    float: right;
+    font-size: 1.25rem;
+  }
+  .form__label{
+    display: block;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+  .form__label > input {
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    padding: 0;
+    line-height: normal;
+  }
+  .form__legend{
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
 #dummy-textarea{
   position: fixed;
   top: 0;
@@ -125,4 +145,98 @@ main{
   background-color: rgba(0, 0, 0, 0.5);
   display: table-cell;
   vertical-align: middle;
+}
+
+
+
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+
+    /*required for proper track sizing in FF*/
+    width: 300px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background: goldenrod;
+    margin-top: -0.5rem;
+    cursor: pointer;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+input[type=range]::-moz-range-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background: goldenrod;
+    cursor: pointer;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+    width: 300px;
+    height: 5px;
+
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+
+    /*remove default tick marks*/
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+}
+input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 10px;
+}
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background: goldenrod;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #888;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
 }

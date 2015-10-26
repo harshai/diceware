@@ -7,17 +7,23 @@ var diceware = (function() {
   }
 
 
-  var generateRandomWords = function(wordCount){
-    var diceThrowCount = wordCount * 5,
-        randomArray = new Uint32Array(diceThrowCount);
+  var generateRandomArray = function(length, range) {
+    var randomArr = new Uint32Array(length),
+        temp = [];
+    (window.crypto || window.mscrypto).getRandomValues(randomArr);
 
-    (window.crypto || window.mscrypto).getRandomValues(randomArray);
+    temp = _.map(randomArr, function(num){
+      return (num % range) + 1;
+    });
+
+    return temp;
+  },
+
+  generateRandomWords = function(wordCount) {
+    var randomArr = generateRandomArray(wordCount * 5, 6)
 
     return (_
-      .chain(randomArray)
-      .map(function(num){
-        return num % 5 + 1;
-      })
+      .chain(randomArr)
       .chunk(5)
       .map(function(arr){
         return arr.join('')
@@ -29,22 +35,26 @@ var diceware = (function() {
   },
 
   addExtraSecurity = function(dicewarePass, separator) {
-    var randomArray = new Uint32Array(7),
-        temp = [];
+    upperCaseRandomWord(dicewarePass);
+    attachCharToWord(dicewarePass);
+    return dicewarePass.join(separator);
+  },
 
-    (window.crypto || window.mscrypto).getRandomValues(randomArray);
+  upperCaseRandomWord = function(dicewarePass) {
+    var wordToCap = dicewarePass[generateRandomArray(1, dicewarePass.length - 1)[0]],
+        index = dicewarePass.indexOf(wordToCap);
+    dicewarePass.splice(index, 1, wordToCap.toUpperCase());
 
-    temp = _.map(randomArray, function(num){
-      return num % 8 + 1;
-    });
-    var word1 = dicewarePass[temp[0] % dicewarePass.length];
-    dicewarePass[temp[0]] = word1.substr(0, temp[1] % word1.length) + extraSecurity[temp[2] % 6][temp[3] % 6] + word1.substr(temp[1] % word1.length + 1);
+    return dicewarePass;
+  },
 
-    var word2 = dicewarePass[temp[4] % dicewarePass.length];
-    dicewarePass[temp[4]] = word2.substr(0, temp[5] % word2.length) + word2.charAt(temp[5] % 6 + 1).toUpperCase() + word2.substr(temp[5] % word2.length + 1);
+  attachCharToWord = function(dicewarePass){
+    var randomArr = generateRandomArray(3, 5),
+        specialChar = extraSecurity[randomArr[0]][randomArr[1]],
+        randomWord = dicewarePass[randomArr[2]];
 
-    console.log(extraSecurity[temp[2] % 6][temp[3] % 6], word2.charAt(temp[5] % 6 + 1).toUpperCase())
-    return dicewarePass.join(separator)
+    dicewarePass.splice(randomArr[2], 1, randomWord + specialChar);
+    return dicewarePass;
   }
 
   diceware = function(options) {
@@ -60,9 +70,4 @@ var diceware = (function() {
 
   return diceware;
 
-}())
-
-console.log(diceware({
-  wordCount: 6,
-  extraSecurity: false
-}));
+}());

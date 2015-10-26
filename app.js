@@ -3,14 +3,16 @@
       codeEl = document.getElementById('generated-pass'),
       wordCount = document.getElementById('wordCount'),
       wordCountOutput = document.getElementById('wordCountOutput'),
-      mask = document.getElementById('mask');
+      mask = document.getElementById('mask'),
+      extraSecurity = document.getElementById('extraSecurity');
+
+
+  document.generatePasswordForm.addEventListener("change", function(event){
+    generatePassword(event);
+  }, false)
 
   generateBtn.addEventListener("click", function(event){
-    event.preventDefault();
-    var password = diceware({
-      wordCount: wordCount.value
-    })
-    codeEl.childNodes[0].nodeValue = password;
+    generatePassword(event)
   }, false);
 
   codeEl.addEventListener("click", function(event){
@@ -25,7 +27,16 @@
     codeEl.classList.remove('copied')
   }, false)
 
+  function generatePassword(event) {
+    event && event.preventDefault();
+    var password = diceware({
+      wordCount: wordCount.value,
+      extraSecurity: extraSecurity.checked,
+      separator: generatePasswordForm.separator.value
+    });
 
+    codeEl.childNodes[0].nodeValue = password;
+  }
 
   function copyToClipboard(text) {
     var textArea = document.createElement("textarea");
@@ -37,8 +48,6 @@
       var successful = document.execCommand('copy');
       if(successful){
         codeEl.classList.add('copied');
-      } else {
-        window.prompt("Copy to clipboard: Ctrl/Cmd + C, Enter", text);
       }
 
     } catch (err) {
@@ -49,5 +58,5 @@
   }
 
 
-  generateBtn.click();
+  generatePassword();
 }(window, document)
