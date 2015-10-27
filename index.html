@@ -10,11 +10,11 @@
     <section>
       <h1>Generate diceware password</h1>
       <div class="pass">
-        <code id="generated-pass" class="pass__display">
+        <code id="generated-pass" class="pass__display" title="click to copy">
           <div id="mask" class="mask">Copied!</div>
         </code>
+        <small class="help-text">Click to copy to clipboard</small>
         <form name="generatePasswordForm" class="form">
-          <button id="generate" class="pure-button button-primary form__button">Moar</button>
           <fieldset class="form__group">
             <label class="form__label" for="noOfWords">Number of words</label>
             <input id="wordCount" name="word-count" type="range" min="4" max="15" value="6" step="1"/>
@@ -33,6 +33,8 @@
             <label class="form__label" for="separator_period"><input type="radio" id="separator_period" name="separator" value="."/> Period</label>
             <label class="form__label" for="separator_comma"><input type="radio" id="separator_comma" name="separator" value=","/> Comma</label>
           </fieldset>
+
+          <button id="generate" class="pure-button button-primary form__button">Genetrate</button>
         </form>
       </div>
     </section>

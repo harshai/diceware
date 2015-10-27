@@ -38,7 +38,7 @@ https://github.com/yahoo/pure/blob/master/LICENSE.md
 }
 
 .pure-button:focus {
-  outline: 0
+  // outline: 0
 }
 
 .pure-button-active,.pure-button:active {
@@ -61,7 +61,8 @@ body{
   font-family: sans-serif;
 }
 main{
-  max-width: 44em;
+  max-width: 44rem;
+  min-width: 25rem;
   margin: 0 auto;
 }
 .pass{
@@ -79,36 +80,56 @@ main{
   cursor: pointer;
   position: relative;
   word-break: break-word;
+  word-wrap: break-word;
   transition: all 400ms ease-in;
 }
-
+.help-text{
+  display: none;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  color: darksalmon;
+  pointer-events: none;
+  float: right;
+}
+.copy-supported .help-text {
+  display: block;
+}
 .form{
-  margin-top: 1rem;
+  margin-top: 1.75rem;
+  clear: both;
   overflow: auto;
 }
   .form__group{
     border: none;
+    padding: 0;
+    margin: 0;
     margin-bottom: 0.5rem;
   }
-  .form__button{
-    float: right;
-    font-size: 1.25rem;
+  .form__button {
+    width: 80%;
+    max-width: 20rem;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    display: block;
   }
   .form__label{
     display: block;
     margin-bottom: 0.5rem;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
   }
   .form__label > input {
     font-size: 1.5rem;
     box-sizing: border-box;
     padding: 0;
     line-height: normal;
+    margin: 0;
   }
   .form__legend{
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
   }
 #dummy-textarea{
   position: fixed;
@@ -169,11 +190,11 @@ input[type=range]::-webkit-slider-runnable-track {
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 2rem;
+    width: 2rem;
     border-radius: 50%;
     background: goldenrod;
-    margin-top: -0.5rem;
+    margin-top: -0.75rem;
     cursor: pointer;
 }
 input[type=range]:focus {
@@ -239,4 +260,17 @@ input[type=range]:focus::-ms-fill-lower {
 }
 input[type=range]:focus::-ms-fill-upper {
     background: #ccc;
+}
+
+@media screen and (min-width: 44em) {
+  .form__label{
+    display: inline-block;
+    margin-right: 1.5rem;
+  }
+  .form__button {
+    width: auto;
+    display: inline-block;
+    float: right;
+    font-size: 1.5rem;
+  }
 }

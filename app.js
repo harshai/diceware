@@ -9,14 +9,17 @@
 
   document.generatePasswordForm.addEventListener("change", function(event){
     generatePassword(event);
+    document.queryCommandSupported('copy') && document.body.classList.add("copy-supported")
   }, false)
 
   generateBtn.addEventListener("click", function(event){
-    generatePassword(event)
+    generatePassword(event);
+    document.queryCommandSupported('copy') && document.body.classList.add("copy-supported")
   }, false);
 
   codeEl.addEventListener("click", function(event){
    document.queryCommandSupported('copy') && copyToClipboard(this.childNodes[0].nodeValue);
+   document.body.classList.remove("copy-supported")
   }, false)
 
   wordCount.addEventListener("input", function(){
@@ -24,7 +27,7 @@
   }, false)
 
   mask.addEventListener("transitionend", function(){
-    codeEl.classList.remove('copied')
+    codeEl.classList.remove('copied');
   }, false)
 
   function generatePassword(event) {
