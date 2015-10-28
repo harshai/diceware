@@ -164,8 +164,9 @@ main{
   color: #FFF;
   transition: all 400ms ease-in;
   background-color: rgba(0, 0, 0, 0.5);
-  display: table-cell;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -274,12 +275,3 @@ input[type=range]:focus::-ms-fill-upper {
     font-size: 1.5rem;
   }
 }
-
-@media
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 120dpi){
-  html{
-    font-size: 1.75em;
-  }
-
-  }
