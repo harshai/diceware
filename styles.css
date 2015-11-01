@@ -67,6 +67,7 @@ main{
 }
 .pass{
   overflow: auto;
+  padding: 0.25rem;
 }
 .pass__display{
   display: block;
@@ -96,6 +97,7 @@ main{
 }
 .form{
   margin-top: 1.75rem;
+  padding: 3px;
   clear: both;
   overflow: auto;
 }
@@ -263,7 +265,8 @@ input[type=range]:focus::-ms-fill-upper {
     background: #ccc;
 }
 
-@media screen and (min-width: 44em) {
+@media screen and (min-width: 48em) {
+
   .form__label{
     display: inline-block;
     margin-right: 1.5rem;

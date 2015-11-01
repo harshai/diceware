@@ -15,6 +15,7 @@
         </code>
         <small class="help-text">Click to copy to clipboard</small>
         <form name="generatePasswordForm" class="form">
+
           <fieldset class="form__group">
             <label class="form__label" for="noOfWords">Number of words</label>
             <input id="wordCount" name="word-count" type="range" min="4" max="15" value="6" step="1"/>
@@ -34,6 +35,15 @@
             <label class="form__label" for="separator_comma"><input type="radio" id="separator_comma" name="separator" value=","/> Comma</label>
           </fieldset>
 
+          <fieldset class="form__group">
+            <legend class="form__legend">Dictionary</legend>
+            <label class="form__label" for="dictionary_space"><input type="radio" id="dictionary_space" name="dictionary" value="defaultWordList" checked="checked" /> Default (English, Americanized)</label>
+            <label class="form__label" for="dictionary_bang"><input type="radio" id="dictionary_bang" name="dictionary" value="alternative"/> English Alternative (Nuetral)</label>
+            <label class="form__label" for="dictionary_catalan"><input type="radio" id="dictionary_catalan" name="dictionary" value="catalan"/> Catalan</label>
+            <label class="form__label" for="dictionary_japanese"><input type="radio" id="dictionary_japanese" name="dictionary" value="japanese"/> Japanese</label>
+            <label class="form__label" for="dictionary_swedish"><input type="radio" id="dictionary_swedish" name="dictionary" value="swedish"/> Swedish</label>
+          </fieldset>
+
           <button id="generate" class="pure-button button-primary form__button">Genetrate</button>
         </form>
       </div>
@@ -42,7 +52,13 @@
   <!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script> -->
   <script src="lodash.min.js"></script>
   <script src="diceware-wordlist.js"></script>
+  <script src="alternative.js"></script>
+  <script src="catalan.js"></script>
+  <script src="japanese.js"></script>
+  <script src="swedish.js"></script>
   <script src="diceware.js"></script>
+
+
   <script src="app.js"></script>
 </body>
 </html>

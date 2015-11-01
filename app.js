@@ -35,9 +35,9 @@
     var password = diceware({
       wordCount: wordCount.value,
       extraSecurity: extraSecurity.checked,
-      separator: generatePasswordForm.separator.value
+      separator: generatePasswordForm.separator.value,
+      dictionary: generatePasswordForm.dictionary.value
     });
-
     codeEl.childNodes[0].nodeValue = password;
   }
 

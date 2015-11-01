@@ -3,9 +3,9 @@ var diceware = (function() {
     separator: " ",
     wordCount: 6,
     extraSecurity: false,
-    minLength: 20
+    minLength: 20,
+    dictionary: "defaultWordList"
   }
-
 
   var generateRandomArray = function(length, range) {
     var randomArr = new Uint32Array(length),
@@ -19,8 +19,9 @@ var diceware = (function() {
     return temp;
   },
 
-  generateRandomWords = function(wordCount) {
-    var randomArr = generateRandomArray(wordCount * 5, 6)
+  generateRandomWords = function(wordCount, dictionary) {
+    var randomArr = generateRandomArray(wordCount * 5, 6),
+        wordlist = dicewareDictionaryList[dictionary]
 
     return (_
       .chain(randomArr)
@@ -29,15 +30,13 @@ var diceware = (function() {
         return arr.join('')
       })
       .map(function(key){
-        return dicewareWordlist[key];
+        return wordlist[key];
       })
       .value());
   },
 
-  addExtraSecurity = function(dicewarePass, separator) {
-    upperCaseRandomWord(dicewarePass);
-    attachCharToWord(dicewarePass);
-    return dicewarePass.join(separator);
+  addExtraSecurity = function(dicewarePass) {
+    return attachCharToWord(upperCaseRandomWord(dicewarePass));
   },
 
   upperCaseRandomWord = function(dicewarePass) {
@@ -50,7 +49,7 @@ var diceware = (function() {
 
   attachCharToWord = function(dicewarePass){
     var randomArr = generateRandomArray(3, 5),
-        specialChar = extraSecurity[randomArr[0]][randomArr[1]],
+        specialChar = dicewareDictionaryList.extraSecurity[randomArr[0]][randomArr[1]],
         randomWord = dicewarePass[randomArr[2]];
 
     dicewarePass.splice(randomArr[2], 1, randomWord + specialChar);
@@ -59,13 +58,20 @@ var diceware = (function() {
 
   diceware = function(options) {
     options = _.merge(defaults, options || {});
-    var dicewarePass = generateRandomWords(options.wordCount);
+    var dicewarePass = generateRandomWords(options.wordCount, options.dictionary);
 
     if(options.extraSecurity) {
-      return addExtraSecurity(dicewarePass, options.separator);
+      return addExtraSecurity(dicewarePass).join(options.separator);
     }
 
     return dicewarePass.join(options.separator);
+  }
+
+  diceware.calculateEntropy = function(passphrase) {
+    return {
+      entropy: 1,
+      yearsToCrack: 5,
+    }
   }
 
   return diceware;
