@@ -1,4 +1,5 @@
-var polish = {
+var dicewareDictionaryList = dicewareDictionaryList || {}
+dicewareDictionaryList.polish = {
 11111:"-",
 11112:"--",
 11113:"---",

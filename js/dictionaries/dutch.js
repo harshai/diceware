@@ -1,4 +1,5 @@
-var dutch = {
+var dicewareDictionaryList = dicewareDictionaryList || {}
+dicewareDictionaryList.dutch = {
 11111:"0",
 11112:"1",
 11113:"2",

@@ -1,3 +1,4 @@
+var dicewareDictionaryList = dicewareDictionaryList || {}
 dicewareDictionaryList.catalan = {
 11111:"1r",
 11112:"2n",

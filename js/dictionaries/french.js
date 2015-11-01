@@ -1,4 +1,5 @@
-var french = {
+var dicewareDictionaryList = dicewareDictionaryList || {}
+dicewareDictionaryList.french = {
 11111:"=",
 11112:"==",
 11113:"===",

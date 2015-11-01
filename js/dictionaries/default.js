@@ -1,4 +1,4 @@
-var dicewareDictionaryList = {}
+var dicewareDictionaryList = dicewareDictionaryList || {}
 dicewareDictionaryList.defaultWordList = {
   "11111": "a",
   "11112": "a&p",

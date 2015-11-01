@@ -1,3 +1,4 @@
+var dicewareDictionaryList = dicewareDictionaryList || {}
 dicewareDictionaryList.swedish = {
 11111:"=",
 11112:"==",

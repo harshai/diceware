@@ -1,3 +1,4 @@
+var dicewareDictionaryList = dicewareDictionaryList || {}
 dicewareDictionaryList.japanese = {
 11111:"0",
 11112:"1",

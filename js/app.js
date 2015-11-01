@@ -52,7 +52,6 @@
       if(successful){
         codeEl.classList.add('copied');
       }
-
     } catch (err) {
       console.log(err);
     }
@@ -60,6 +59,9 @@
     document.body.removeChild(textArea);
   }
 
+  window.onload = function(){
+    generateBtn.removeAttribute("disabled")
+  }
 
   generatePassword();
 }(window, document)

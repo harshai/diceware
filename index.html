@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Diceware</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <main>
@@ -38,27 +38,42 @@
           <fieldset class="form__group">
             <legend class="form__legend">Dictionary</legend>
             <label class="form__label" for="dictionary_space"><input type="radio" id="dictionary_space" name="dictionary" value="defaultWordList" checked="checked" /> Default (English, Americanized)</label>
-            <label class="form__label" for="dictionary_bang"><input type="radio" id="dictionary_bang" name="dictionary" value="alternative"/> English Alternative (Nuetral)</label>
+            <label class="form__label" for="dictionary_bang"><input type="radio" id="dictionary_bang" name="dictionary" value="alternative"/> English Alternative (Neutral)</label>
             <label class="form__label" for="dictionary_catalan"><input type="radio" id="dictionary_catalan" name="dictionary" value="catalan"/> Catalan</label>
             <label class="form__label" for="dictionary_japanese"><input type="radio" id="dictionary_japanese" name="dictionary" value="japanese"/> Japanese</label>
             <label class="form__label" for="dictionary_swedish"><input type="radio" id="dictionary_swedish" name="dictionary" value="swedish"/> Swedish</label>
+            <label class="form__label" for="dictionary_esperanto"><input type="radio" id="dictionary_esperanto" name="dictionary" value="esperanto"/> Esperanto</label>
+            <label class="form__label" for="dictionary_french"><input type="radio" id="dictionary_french" name="dictionary" value="french"/> French</label>
+            <label class="form__label" for="dictionary_german"><input type="radio" id="dictionary_german" name="dictionary" value="german"/> German</label>
+            <label class="form__label" for="dictionary_polish"><input type="radio" id="dictionary_polish" name="dictionary" value="polish"/> Polish</label>
+            <label class="form__label" for="dictionary_dutch"><input type="radio" id="dictionary_dutch" name="dictionary" value="dutch"/> Dutch</label>
+            <label class="form__label" for="dictionary_maori"><input type="radio" id="dictionary_maori" name="dictionary" value="maori"/> Maori</label>
+            <label class="form__label" for="dictionary_russian"><input type="radio" id="dictionary_russian" name="dictionary" value="russian"/> Russian</label>
           </fieldset>
 
-          <button id="generate" class="pure-button button-primary form__button">Genetrate</button>
+          <button id="generate" class="pure-button button-primary form__button" disabled>Genetrate</button>
         </form>
       </div>
     </section>
   </main>
-  <!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script> -->
-  <script src="lodash.min.js"></script>
-  <script src="diceware-wordlist.js"></script>
-  <script src="alternative.js"></script>
-  <script src="catalan.js"></script>
-  <script src="japanese.js"></script>
-  <script src="swedish.js"></script>
-  <script src="diceware.js"></script>
+
+  <script defer src="js/lodash.min.js"></script>
+  <script defer src="js/diceware.js"></script>
+  <script defer src="js/dictionaries/default.js"></script>
+
+  <script defer async src="js/dictionaries/alternative.js"></script>
+  <script defer async src="js/dictionaries/catalan.js"></script>
+  <script defer async src="js/dictionaries/japanese.js"></script>
+  <script defer async src="js/dictionaries/swedish.js"></script>
+  <script defer async src="js/dictionaries/polish.js"></script>
+  <script defer async src="js/dictionaries/french.js"></script>
+  <script defer async src="js/dictionaries/german.js"></script>
+  <script defer async src="js/dictionaries/esperanto.js"></script>
+  <script defer async src="js/dictionaries/dutch.js"></script>
+  <script defer async src="js/dictionaries/maori.js"></script>
+  <script defer async src="js/dictionaries/russian.js"></script>
 
 
-  <script src="app.js"></script>
+  <script defer src="js/app.js"></script>
 </body>
 </html>

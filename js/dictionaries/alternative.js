@@ -1,3 +1,4 @@
+var dicewareDictionaryList = dicewareDictionaryList || {}
 dicewareDictionaryList.alternative = {
 11111:"a",
 11112:"a's",
