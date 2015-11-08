@@ -278,3 +278,9 @@ input[type=range]:focus::-ms-fill-upper {
     font-size: 1.5rem;
   }
 }
+
+footer{
+  margin: 3rem 1rem 0;
+  float: right;
+  text-align: right;
+}
